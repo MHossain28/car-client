@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo1 from "../../../assets/icons/logoBrinedtow.png";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  // Logout Handle
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   const menuItems = (
     <React.Fragment>
       <li>
@@ -21,9 +31,27 @@ const Header = () => {
         </Link>
       </li>
       <li>
-        <Link className="btn btn-ghost bg-white border-0 my-1" to="/login">
-          Login
-        </Link>
+        {user?.uid ? (
+          <>
+            <Link
+              className="btn btn-ghost bg-white border-0 my-1"
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+
+            <button
+              onClick={handleLogOut}
+              className="btn btn-ghost bg-white border-0 my-1"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link className="btn btn-ghost bg-white border-0 my-1" to="/login">
+            Login
+          </Link>
+        )}
       </li>
     </React.Fragment>
   );
