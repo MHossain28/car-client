@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -16,6 +16,12 @@ const Login = () => {
   // Login error State
   const [loginError, setLoginError] = useState("");
 
+  // Navigate
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+
   const handleLogin = (data) => {
     console.log(data);
     logIn(data.email, data.password)
@@ -23,6 +29,7 @@ const Login = () => {
         setLoginError("");
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error.message);

@@ -26,6 +26,11 @@ const Header = () => {
         </Link>
       </li>
       <li>
+        <Link className="btn btn-ghost bg-white border-0 my-1" to="/orders">
+          Orders
+        </Link>
+      </li>
+      <li>
         <Link className="btn btn-ghost bg-white border-0 my-1" to="/about">
           About Us
         </Link>
@@ -95,8 +100,8 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{menuItems}</ul>
         </div>
         <Link to="/services">
-          <button className="btn btn-outline btn-success m-5 border-spacing-0 hidden lg:block">
-            GET START
+          <button className="btn btn-outline btn-success  border-spacing-0 hidden lg:block">
+            GETSTART
           </button>
         </Link>
       </div>

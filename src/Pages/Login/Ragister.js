@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
+import { FaArrowRight, FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
@@ -13,8 +13,9 @@ const Ragister = () => {
     formState: { errors },
   } = useForm();
   // Get Firebase Info
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, googleLogIn } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignUp = (data) => {
     console.log(data);
@@ -24,9 +25,11 @@ const Ragister = () => {
         const user = result.user;
         console.log(user);
         toast("User Created Successfully");
+
         const userInfo = {
           displayName: data.name,
         };
+
         updateUser(userInfo)
           .then(() => {})
           .catch((err) => console.error(err));
@@ -37,9 +40,20 @@ const Ragister = () => {
       });
   };
 
+  // Google Login Handle
+  const handleGoogleLogin = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
-    <div>
-      <div className=" card-actions justify-end mx-6">
+    <div className="mb-20">
+      <div className=" card-actions justify-end mx-6 ">
         <Link to="/ragister" className=" btn btn-accent text-white">
           LOG IN <FaArrowRight className="w-6 ms-2"></FaArrowRight>
         </Link>
@@ -133,6 +147,17 @@ const Ragister = () => {
                 className="btn btn-accent mt-5  text-white"
                 type="submit"
               />
+              <h6 className="text-center">
+                <hr /> OR
+              </h6>
+              {/* submit btn  */}
+              <button
+                onClick={handleGoogleLogin}
+                className="btn btn-outline btn-accent mt-5  text-white"
+              >
+                <FaGoogle className="w-6"></FaGoogle>
+                login With Google
+              </button>
             </form>
           </div>
         </div>
