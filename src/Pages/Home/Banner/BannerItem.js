@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Banner.css";
 
 const BannerItem = ({ slide }) => {
@@ -35,12 +36,12 @@ const BannerItem = ({ slide }) => {
       </div>
       <div className="absolute flex justify-start transform -translate-y-1/2 left-5  top-3/4 w-2/5 text-white">
         <p className="">
-          <button className="btn btn-accent mr-3 text-white">
-            Discover More
-          </button>
-          <button className="btn btn-outline btn-accent mt-2">
-            Latest Porject
-          </button>
+          <Link to="/services" className="btn btn-accent mr-3 text-white">
+            Our SERVICR
+          </Link>
+          <Link to="/about" className="btn btn-outline btn-accent mt-2">
+            About Us
+          </Link>
         </p>
       </div>
     </div>

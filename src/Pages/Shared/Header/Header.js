@@ -63,7 +63,7 @@ const Header = () => {
   return (
     <div className="navbar h-20 mt-4 mb-4  bg-base-100">
       <div className="navbar-start">
-        <Link className="   normal-case text-xl">
+        <Link to="/" className=" normal-case text-xl">
           <img height={50} width={70} src={logo1} alt="" />
         </Link>
       </div>

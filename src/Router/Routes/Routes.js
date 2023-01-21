@@ -25,11 +25,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/orders",
-        element: <Orders></Orders>,
+        element: (
+          <PrivateRoutes>
+            <Orders></Orders>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoutes>
+            <Dashboard></Dashboard>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/login",
@@ -43,17 +55,9 @@ const router = createBrowserRouter([
         path: "/cheackout/:id",
         element: <CheackOut></CheackOut>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://car-server-blue.vercel.app/services/${params.id}`),
       },
     ],
-  },
-  {
-    path: "/dashboard",
-    element: (
-      <PrivateRoutes>
-        <Dashboard></Dashboard>
-      </PrivateRoutes>
-    ),
   },
 ]);
 

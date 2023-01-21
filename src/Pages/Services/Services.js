@@ -5,7 +5,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
   //   Card data Loade
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://car-server-blue.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);

@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const CheackOut = () => {
   const { user } = useContext(AuthContext);
   const { _id, title, price } = useLoaderData();
+  const location = useNavigate();
 
   // Ordar Handle
   const handleOrder = (event) => {
@@ -26,7 +27,7 @@ const CheackOut = () => {
     };
 
     // send data for Database
-    fetch("http://localhost:5000/orders", {
+    fetch("https://car-server-blue.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -38,6 +39,7 @@ const CheackOut = () => {
         console.log(data);
         if (data.acknowledged) {
           alert("Order Seccessfully");
+          location("/orders");
           form.reset();
         }
       })
