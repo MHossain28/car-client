@@ -54,7 +54,7 @@ const Ragister = () => {
   return (
     <div className="mb-20">
       <div className=" card-actions justify-end mx-6 ">
-        <Link to="/ragister" className=" btn btn-accent text-white">
+        <Link to="/login" className=" btn btn-accent text-white">
           LOG IN <FaArrowRight className="w-6 ms-2"></FaArrowRight>
         </Link>
       </div>

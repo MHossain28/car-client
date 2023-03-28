@@ -58,6 +58,7 @@ const Login = () => {
           </div>
           {/* react hook form  */}
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <h3 className="text-2xl text-center font-semibold mt-5">LOG IN</h3>
             <form onSubmit={handleSubmit(handleLogin)} className="card-body">
               {/* email  */}
               <label className="label">

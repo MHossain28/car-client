@@ -1,10 +1,10 @@
 import React from "react";
 import "./FristBanner.css";
-import imgdd from "../../../../assets/images/banner/4.jpg";
+import imgdd from "../../../../assets/images/banner/5.jpg";
 
 const FristBanner = () => {
   return (
-    <div className="text-white">
+    <div className="text-white my-6 mb-16">
       <div
         className="banner"
         style={{
