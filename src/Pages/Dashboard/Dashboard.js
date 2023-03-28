@@ -1,13 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
     <div className="my-12">
       <h1 className="text-3xl text-center "> Admin Site </h1>
       <hr />
-      <h2 className="text-primary text-center text-2xl">
-        This site work is continue
-      </h2>
+      <div className="drawer-side">
+        <label className="drawer-overlay"></label>
+        <ul className="menu p-4 w-80 bg-base-100">
+          <li>
+            <Link className="btn btn-outline btn-primary">Our Orders</Link>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

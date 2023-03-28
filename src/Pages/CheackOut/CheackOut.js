@@ -56,18 +56,21 @@ const CheackOut = () => {
           <input
             type="text"
             name="firstName"
+            required
             placeholder="First Name"
             className="input input-ghost w-full input-bordered"
           />
           <input
             type="text"
             name="lastName"
+            required
             placeholder="Last Name"
             className="input input-ghost w-full input-bordered"
           />
           <input
             type="text"
             name="phone"
+            required
             placeholder="Your Phone"
             className="input input-ghost w-full input-bordered"
           />
@@ -82,8 +85,9 @@ const CheackOut = () => {
         </div>
         <textarea
           name="message"
+          maxLength={20}
           className="textarea textarea-bordered h-24 w-full"
-          placeholder="Your Message"
+          placeholder="Your Message 20 letter"
         ></textarea>
         <input
           type="submit"
