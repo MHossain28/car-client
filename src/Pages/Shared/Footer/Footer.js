@@ -5,6 +5,23 @@ import logo from "../../../assets/icons/logoBrinedtow.png";
 const Footer = () => {
   return (
     <div>
+      <div className="bg-base-200 ">
+        <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 p-6 ">
+          <h1 className="text-4xl font-bold ">
+            SUBSCRIBE TO OUR <span className="text-info">NEWSLETTER</span>
+          </h1>
+          <div className="form-control">
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Email"
+                className="input input-bordered w-full"
+              />
+              <button className="btn btn-outline btn-info">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <footer className="footer p-10 bg-base-300 text-base-content">
         <div>
           <img height={100} width={200} src={logo} alt="" />
