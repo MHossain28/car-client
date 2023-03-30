@@ -44,7 +44,7 @@ const Login = () => {
           SIGN UP <FaArrowRight className="w-6 ms-2"></FaArrowRight>
         </Link>
       </div>
-      <div className="hero min-h-screen ">
+      <div className="hero min-h-screen sm:w-full">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>

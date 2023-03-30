@@ -25,7 +25,7 @@ const Ragister = () => {
         const user = result.user;
         console.log(user);
         toast("User Created Successfully");
-
+        navigate("/");
         const userInfo = {
           displayName: data.name,
         };
